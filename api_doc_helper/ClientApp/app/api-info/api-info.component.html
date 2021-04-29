@@ -1,0 +1,60 @@
+
+<div *ngFor="let api of apiInfo" class="table-responsive" id="{{api.FullName}}">
+    <table class="table table-bordered table-striped" *ngIf="api.PropertyInfo[0] && api.PropertyInfo[1]">
+        <thead>
+        <tr>
+            <th colspan="2"><h4>名称 {{api.Name}}</h4></th>           
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>
+                    描述                                          
+                </th>
+                <td [innerHtml]="api.Desc">                                                           
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    接口地址                                          
+                </th>
+                <td>
+                    {{GetApiUri()}}                                         
+                </td>
+            </tr>
+        <tr>
+            <th>Http请求方式 </th>
+            <td>POST, 数据格式：application/json </td>
+        </tr>
+        <tr>
+            <th> 
+              <button (click)="Back()">返回</button>     
+            </th>
+            <th> 
+                <button (click)="Debug(svrName,apiInfo[0].Name)">调试</button>   
+              </th>              
+        </tr>
+        <tr>
+            <th class="warning">错误码:</th>
+            <th [innerHtml]="GetCommonErrorCode(api.CodeDesc)">                                         
+            </th>
+        </tr>
+        <tr>
+            <th>输入参数说明</th>
+            <th><pre class="prettyprint json">{{api.PropertyInfo[0].LimitDesc}}</pre></th>
+        </tr>
+        <tr>
+            <th nowrap="">输入参数例子</th>
+            <th><pre class="prettyprint json">{{api.PropertyInfo[0].JsonDesc}}</pre></th>
+        </tr>        
+        <tr>
+            <th>输出参数说明</th>
+            <th><pre class="prettyprint json">{{api.PropertyInfo[1].LimitDesc}}</pre></th>
+        </tr>
+        <tr>
+            <th>输出参数格式</th>
+            <th><pre class="prettyprint json">{{api.PropertyInfo[1].JsonDesc}}</pre></th>
+        </tr>
+        </tbody>
+    </table>
+</div>   

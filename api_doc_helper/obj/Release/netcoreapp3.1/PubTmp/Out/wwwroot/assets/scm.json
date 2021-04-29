@@ -1,0 +1,29 @@
+{
+    "QuantumConfig": {
+       "RpcService": {
+           "Pool": 1,
+           "Ip": "192.168.100.21",
+           "Port": 5001,
+           "ServerType": 5,
+           "TimeOut": 5000,
+           "AssemblyPath": "",
+           "Enable": true
+       },
+       "ConfigCenter": {
+           "ConfigType": 1,
+           "Ip": "192.168.100.168:2181",
+           "SessionTimeout": 5000
+       }
+   },
+     "ConstKeyValue": {
+       "Items": [
+         {
+           "Key": "HttpProxy",
+           "Value": "http://192.168.100.121/api/"
+         }
+       ]
+     }  
+   }
+   
+   
+   

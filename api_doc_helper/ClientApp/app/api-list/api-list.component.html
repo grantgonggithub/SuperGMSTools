@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-12">
+      <h2>Api接口列表</h2>
+      <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+              <thead>
+                  <tr>
+                      <th nowrap>Api接口</th>
+                      <th>接口描述</th>
+                      <th nowrap>接口路径</th>                      
+                  </tr>
+              </thead>
+              <tbody>             
+                <tr *ngIf="error"><td colspan="3" class="alert-info">{{error}}</td></tr>   
+              <tr *ngFor="let api of apiInfos" id="{{api.Name}}">
+                  <td>
+                        <a routerLink="{{api.Name}}" routerLinkActive="{exact: true}">
+                            {{api.Name}}
+                        </a>                      
+                  </td>
+                  <td [innerHtml]="api.Desc">
+                  </td>
+                  <td>
+                    /api/{{svrName}}/{{api.Name}}
+                  </td>                  
+              </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+
+
+             

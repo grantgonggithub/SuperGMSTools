@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+此文件由 Web 项目的发布/打包过程使用。可以通过编辑此 MSBuild 文件
+自定义此过程的行为。为了解与此相关的更多内容，请访问 https://go.microsoft.com/fwlink/?LinkID=208121。 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>F:\Project\GitProject\1NewProject\api_doc_helper\api_doc_helper\bin\Release\PublishOutput</_PublishTargetUrl>
+    <History>True|2021-03-16T08:33:12.8106583Z;True|2021-03-16T16:28:09.7216337+08:00;False|2021-03-16T15:02:18.7593029+08:00;False|2021-03-15T16:19:23.3822033+08:00;False|2021-03-15T16:13:12.5194711+08:00;False|2021-03-15T16:07:03.1368265+08:00;</History>
+  </PropertyGroup>
+</Project>

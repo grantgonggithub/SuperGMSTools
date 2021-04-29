@@ -1,0 +1,27 @@
+<div class="row-fluid">
+    <div class="col-md-2">
+        <h2>微服务列表</h2>
+        <hr />
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>微服务名称</th>                       
+                    </tr>
+                </thead>
+                <tbody *ngIf="svrInfo">               
+                <tr *ngFor="let svr of svrInfo.svrs">
+                    <td>
+                        <a routerLink="{{svr}}" routerLinkActive="{exact: true}">
+                          <span class="list" [innerHTML]="svr | translate"></span>
+                        </a>
+                    </td>                 
+                </tr>
+                </tbody>
+            </table>
+        </div>       
+    </div>
+    <div class="col-md-10">       
+        <router-outlet></router-outlet> 
+    </div>
+</div>

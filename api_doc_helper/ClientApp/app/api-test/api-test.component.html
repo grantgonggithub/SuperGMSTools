@@ -1,0 +1,66 @@
+<div class="row">
+    <form #apiForm="ngForm">
+    <div class="col-md-12">
+        <h2>{{api.Name}}</h2>       
+        <div class="table-responsive">
+            <form id="frmTest">
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>接口</th>
+                    <th><h4>{{api.Name}}</h4></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td colspan="2" [innerHtml]="api.Desc">                        
+                    </td>
+                </tr>               
+               
+                <tr>
+                    <th>测试地址:</th>
+                    <th>
+                        <input type="text" class="form-control" id="ApiUri"
+                        required
+                        [(ngModel)]="api.ApiUri" name="ApiUri" />                        
+                    </th>
+                </tr>
+                <tr>
+                    <th nowrap="">输入参数例子</th>
+                    <th>
+                        <textarea class="form-control" id="InputParam" rows="10" cols="100%"
+                        required
+                        [(ngModel)]="api.InputParam" name="InputParam">  </textarea>                         
+                    </th>
+                </tr>
+                <tr>
+                    <th>测试</th>
+                    <th>
+                        <a href="" class="btn btn-warning" (click)="Back()">返回上页</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="" class="btn btn-primary" (click)="Test()">测试</a>
+                        <i id="loading" style="display: none" class="icon-spinner icon-spin icon-large"></i>  
+                        <span id="msg"></span>
+                    </th>
+                </tr>
+                <tr>
+                    <th>返回Http状态</th>
+                    <th><span id="httpStatus"></span></th>
+                </tr>
+                <tr>
+                    <th>接口执行时间</th>
+                    <th><span id="httpTime"></span></th>
+                </tr>
+                <tr>
+                    <th>输出结果</th>
+                    <th><pre class="prettyprint json" id="apiResult"></pre></th>
+                </tr>
+                </tbody>
+            </table>
+            </form>
+        </div>
+    </div>
+    </form>
+</div>
+
+
+
