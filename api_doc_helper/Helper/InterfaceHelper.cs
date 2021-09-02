@@ -47,6 +47,10 @@ namespace Quantum.ApiDoc.Helper
           {
             try
             {
+              //if (svr == "SXSupplyService")
+              //  this._helper.Host = "http://192.168.7.223:20001/v2_api/";
+              //else
+              //  this._helper.Host = "http://192.168.7.207/v2_api/";
               var c = GetApiContent($"{this._helper.Host}{svr}/GetApiHelp", null).Result;
               dict.Add(svr, c);
             }
@@ -74,30 +78,30 @@ namespace Quantum.ApiDoc.Helper
     {
 
       var infos = await _helper.GetApiContent<Nullables, List<ClassInfo>>(uri, Nullables.NullValue);
-      if (infos != null)
-      {
+      //if (infos != null)
+      //{
 
-      }
-      infos?.ForEach(x =>
-      {
-        if (x.PropertyInfo.Count >= 2)
-        {
-          try
-          {
-            if (x.PropertyInfo[0].ApiClassInfo != null)
-            {
-              //x.PropertyInfo[0].LimitDesc = GetLimitJson(x.PropertyInfo[0].ApiClassInfo, res?.Dict);
-              //x.PropertyInfo[1].LimitDesc = GetLimitJson(x.PropertyInfo[1].ApiClassInfo, res?.Dict);
-              x.PropertyInfo[0].ApiClassInfo = null;
-              x.PropertyInfo[1].ApiClassInfo = null;
-            }
-          }
-          catch (Exception ex)
-          {
-            logger.LogError(ex, $"{x.Name} 解析出错");
-          }
-        }
-      });
+      //}
+      //infos?.ForEach(x =>
+      //{
+      //  if (x.PropertyInfo.Count >= 2)
+      //  {
+      //    try
+      //    {
+      //      if (x.PropertyInfo[0]!= null)
+      //      {
+      //        x.PropertyInfo[0].LimitDesc = GetLimitJson(x.PropertyInfo[0].ApiClassInfo, res?.Dict);
+      //        x.PropertyInfo[1].LimitDesc = GetLimitJson(x.PropertyInfo[1].ApiClassInfo, res?.Dict);
+      //        x.PropertyInfo[0].ApiClassInfo = null;
+      //        x.PropertyInfo[1].ApiClassInfo = null;
+      //      }
+      //    }
+      //    catch (Exception ex)
+      //    {
+      //      logger.LogError(ex, $"{x.Name} 解析出错");
+      //    }
+      //  }
+      //});
 
       return infos ?? new List<ClassInfo>();
     }

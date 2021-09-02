@@ -5,7 +5,7 @@
       "Ip": "192.168.7.*",
       "Port": 0,
       "PortList": {
-        "ApiDocument":20000,
+        "ApiDocument": 20000,
         "HttpProxy": 20001,
         "TravelingSmoothlyDriverService": 20002,
         "DeliveryTicketService": 20003,
@@ -16,7 +16,13 @@
         "PublicService": 20008,
         "DevToolsService": 20009,
         "BusinessService": 20011,
-        "FileServer": 20012
+        "FileServer": 20012,
+        "SXCRMService": 20013,
+        "SXJobService": 20014,
+        "SXWebSpiderService": 20015,
+        "SXPurchaseService": 20016,
+        "SXSupplyService": 20017,
+        "SXExternalApiService": 20018
       },
       "ServerType": 2,
       "AssemblyPath": null,
@@ -31,7 +37,7 @@
   },
   "DataBase": {
     "RefFile": "true",
-    "DbFile": "database.test_b.config",
+    "DbFile": "database.test_a.config",
     "SqlFile": "sqlmap.config"
   },
   "NLog": {
@@ -95,16 +101,16 @@
         "Value": "104857600"
       },
       {
-        "Key": "HttpProxy",
-        "Value": "http://192.168.7.211/v2_api/"
-      },
-      {
         "Key": "TrackSql",
         "Value": "true"
       },
       {
         "Key": "appid",
         "Value": "wx52b2ac957076d5f7"
+      },
+      {
+        "Key": "HttpProxy",
+        "Value": "http://192.168.7.207/v2_api/"
       },
       {
         "Key": "secret",
@@ -132,11 +138,11 @@
       },
       {
         "Key": "Ex_Track",
-        "Value": "youxuan" //chailv
+        "Value": "youxuan"
       },
       {
         "Key": "traveling_smoothly_unifiedorder_URL",
-        "Value": "http://192.168.7.211:5003/api/pay/unifiedorder"
+        "Value": "http://192.168.7.207:5003/api/pay/unifiedorder"
       },
       {
         "Key": "SuperTenantId",
@@ -164,15 +170,15 @@
       },
       {
         "Key": "internal_notify_url",
-        "Value": "http://192.168.7.211:20001/BusinessService/InsideUnifiedOrder"
+        "Value": "http://192.168.7.207:20001/BusinessService/InsideUnifiedOrder"
       },
       {
         "Key": "inside_pay_url",
-        "Value": "http://192.168.7.211:20001/PublicService/UnifiedOrder"
+        "Value": "http://192.168.7.33:20001/PublicService/UnifiedOrder"
       },
       {
         "Key": "wechat_ip",
-        "Value": "192.168.7.211"
+        "Value": "192.168.7.207"
       },
       {
         "Key": "SSlCertPath",
@@ -196,7 +202,15 @@
       },
       {
         "Key": "pull_order_url",
-        "Value": "http://192.168.7.211:5051/sy_search_information_speediness"
+        "Value": "http://192.168.7.32:5051/sy_search_information_speediness"
+      },
+      {
+        "Key": "pull_config",
+        "Value": "1"
+      },
+      {
+        "Key": "IBEEnvironment",
+        "Value": "Test" //Test���Ի��� Prod��������
       }
     ]
   },
@@ -204,11 +218,11 @@
     "Host": [
       {
         "Name": "Default",
-        "Ip": "172.19.247.78",
+        "Ip": "192.168.7.201",
         "Port": 5672,
-        "UserName": "tttttt",
-        "PassWord": "xxxxx",
-        "NoAckMsgCount": 5
+        "UserName": "admin",
+        "PassWord": "admin",
+        "NoAckMsgCount": 3
       }
     ]
   },
@@ -216,6 +230,22 @@
     "Nodes": [
       {
         "NodeName": "default",
+        "IsMasterSlave": false,
+        "Items": [
+          {
+            "Pool": 1,
+            "IsMaster": false,
+            "Server": "192.168.7.201",
+            "Port": 6379,
+            "AllowAdmin": true,
+            "ConnectTimeout": 4000,
+            "Ssl": true,
+            "Pwd": "shunxing_*123456"
+          }
+        ]
+      },
+      {
+        "NodeName": "resource",
         "IsMasterSlave": false,
         "Items": [
           {
@@ -260,13 +290,31 @@
       },
       {
         "Name": "BusinessService"
+      },
+      {
+        "Name": "SXCRMService"
+      },
+      {
+        "Name": "SXJobService"
+      },
+      {
+        "Name": "SXWebSpiderService"
+      },
+      {
+        "Name": "SXPurchaseService"
+      },
+      {
+        "Name": "SXSupplyService"
+      },
+      {
+        "Name": "SXExternalApiService"
       }
     ]
   },
   "FileServer": {
     "Items": [
       {
-        "Url": "http://192.168.7.211/file_server"
+        "Url": "http://192.168.7.207/file_server"
       }
     ]
   },
@@ -278,7 +326,7 @@
         "Items": [
           {
             "Pool": 1,
-            "Ip": "192.168.7.211",
+            "Ip": "192.168.7.207",
             "Port": 20002,
             "ServerType": 2,
             "Enable": true
@@ -291,7 +339,7 @@
         "Items": [
           {
             "Pool": 1,
-            "Ip": "192.168.7.211",
+            "Ip": "192.168.7.207",
             "Port": 20005,
             "ServerType": 2,
             "Enable": true
@@ -304,7 +352,7 @@
         "Items": [
           {
             "Pool": 1,
-            "Ip": "192.168.7.211",
+            "Ip": "192.168.7.207",
             "Port": 20003,
             "ServerType": 2,
             "Enable": true
@@ -317,7 +365,7 @@
         "Items": [
           {
             "Pool": 1,
-            "Ip": "192.168.7.211",
+            "Ip": "192.168.7.207",
             "Port": 20004,
             "ServerType": 2,
             "Enable": true
@@ -330,7 +378,7 @@
         "Items": [
           {
             "Pool": 1,
-            "Ip": "192.168.7.211",
+            "Ip": "192.168.7.207",
             "Port": 20006,
             "ServerType": 2,
             "Enable": true
@@ -343,7 +391,7 @@
         "Items": [
           {
             "Pool": 1,
-            "Ip": "192.168.7.211",
+            "Ip": "192.168.7.207",
             "Port": 20007,
             "ServerType": 2,
             "Enable": true
@@ -356,7 +404,7 @@
         "Items": [
           {
             "Pool": 1,
-            "Ip": "192.168.7.211",
+            "Ip": "192.168.7.207",
             "Port": 20008,
             "ServerType": 2,
             "Enable": true
@@ -369,7 +417,7 @@
         "Items": [
           {
             "Pool": 1,
-            "Ip": "192.168.7.211",
+            "Ip": "192.168.7.207",
             "Port": 20009,
             "ServerType": 2,
             "Enable": true
@@ -382,8 +430,86 @@
         "Items": [
           {
             "Pool": 1,
-            "Ip": "192.168.7.211",
+            "Ip": "192.168.7.207",
             "Port": 20011,
+            "ServerType": 2,
+            "Enable": true
+          }
+        ]
+      },
+      {
+        "ServerName": "SXCRMService",
+        "RouterType": 2,
+        "Items": [
+          {
+            "Pool": 1,
+            "Ip": "192.168.7.207",
+            "Port": 20013,
+            "ServerType": 2,
+            "Enable": true
+          }
+        ]
+      },
+      {
+        "ServerName": "SXJobService",
+        "RouterType": 2,
+        "Items": [
+          {
+            "Pool": 1,
+            "Ip": "192.168.7.207",
+            "Port": 20014,
+            "ServerType": 2,
+            "Enable": true
+          }
+        ]
+      },
+      {
+        "ServerName": "SXWebSpiderService",
+        "RouterType": 2,
+        "Items": [
+          {
+            "Pool": 1,
+            "Ip": "192.168.7.207",
+            "Port": 20015,
+            "ServerType": 2,
+            "Enable": true
+          }
+        ]
+      },
+      {
+        "ServerName": "SXPurchaseService",
+        "RouterType": 2,
+        "Items": [
+          {
+            "Pool": 1,
+            "Ip": "192.168.7.207",
+            "Port": 20016,
+            "ServerType": 2,
+            "Enable": true
+          }
+        ]
+      },
+      {
+        "ServerName": "SXSupplyService",
+        "RouterType": 2,
+        "Items": [
+          {
+            "Pool": 1,
+            "Ip": "192.168.7.207",
+            "Port": 20017,
+            "ServerType": 2,
+            "Enable": true
+          }
+        ]
+      },
+      {
+        "ServerName": "SXExternalApiService",
+        "RouterType": 2,
+        "Items": [
+          {
+            "Pool": 1,
+            "Ip": "192.168.7.33",
+            "Port": 20018,
             "ServerType": 2,
             "Enable": true
           }

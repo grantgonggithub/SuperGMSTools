@@ -118,8 +118,8 @@ namespace SuperGMS.ApiDoc
       var openApi = false; //(ServerSetting.GetConstValue("OpenApi")?.Value?.ToLower() ?? "0") == "1";
       var sp = app?.ApplicationServices;
 
-      while (sp != null)
-      {
+     // while (sp != null)
+      //{
         try
         {
           var hostService = sp.GetService(typeof(IWebHostEnvironment)) as IWebHostEnvironment;
@@ -197,14 +197,14 @@ namespace SuperGMS.ApiDoc
             }
           //}
 
-          Thread.Sleep(60*1000);
+         // Thread.Sleep(60*1000);
         }
         catch (Exception e)
         {
           Trace.WriteLine(e.Message);
-          Thread.Sleep(60000);
+          //Thread.Sleep(60000);
         }
-      }
+      //}
 
 
     }
