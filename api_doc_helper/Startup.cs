@@ -126,6 +126,7 @@ namespace SuperGMS.ApiDoc
           var currPath = hostService?.WebRootPath;
           var cf = sp.GetService(typeof(IHttpClientFactory)) as IHttpClientFactory;
           var client = cf.CreateClient("httpProxy");
+         client.Timeout =TimeSpan.FromSeconds(10 * 60 * 1000);
           //var clien2 = cf.CreateClient("httpProxy2");
           //var ah = new HttpApiHelper(clien2, "6a85d414-e2a8-421a-99d4-050b02a199d8");
 
@@ -134,8 +135,8 @@ namespace SuperGMS.ApiDoc
           {
             apiHelper.ClientType = "webapi";
           }
-          InterfaceHelper helper = new InterfaceHelper(apiHelper);
-          var svrs = helper.GetAllServices().Result;
+          Program.helper = new InterfaceHelper(apiHelper);
+          var svrs = Program.helper.GetAllServices().Result;
           lock (Program.lockObject)
           {
             Program.Svrs = svrs;
@@ -170,7 +171,7 @@ namespace SuperGMS.ApiDoc
           //}
           //else
           //{
-            var dict = helper.GetAllServieInterfaces().Result;
+            var dict = Program.helper.GetAllServieInterfaces().Result;
             if (dict.Count > 0)
             {
               try

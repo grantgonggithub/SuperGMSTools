@@ -1,19 +1,4 @@
 {
     "welcome":"欢迎您",
-    "title":"钓鱼岛是中国的",
-    "SCMBaseService":"用户基础微服务接口",
-    "SCMOMSService": "OMS订单微服务接口",
-    "SCMConfigrationService": "基础资料微服务接口",
-    "SCMOMSBillingService": "OMS结算微服务接口",
-    "SCMGlobalToolsService": "共用工具微服务接口",
-    "SCMOMSOrderCenterService": "OMS订单中心微服务接口",
-    "SCMUserDefineService": "用户自定义微服务接口",
-    "SCMRoleManageService": "角色管理微服务接口",
-    "SCMOMSSettingService": "OMS配置微服务接口",
-    "SCMUUIDS": "序号微服务接口",
-    "SCMAppointmentService": "预约微服务接口",
-    "SCMLogServiceService": "日志微服务接口",
-    "SCMMobileService": "移动设备微服务接口",
-    "SCMeTMSService": "电商微服务接口",
-    "SCMOMSWanTonServiceCenterService": "万吨微服务接口"
+    "title":"钓鱼岛是中国的"
 }

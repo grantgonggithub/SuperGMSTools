@@ -51,7 +51,7 @@ namespace Quantum.ApiDoc.Helper
               //  this._helper.Host = "http://192.168.7.223:20001/v2_api/";
               //else
               //  this._helper.Host = "http://192.168.7.207/v2_api/";
-              var c = GetApiContent($"{this._helper.Host}{svr}/GetApiHelp", null).Result;
+              var c = GetServiceInterfaces(svr).Result;
               dict.Add(svr, c);
             }
             catch (Exception ex)
@@ -64,6 +64,16 @@ namespace Quantum.ApiDoc.Helper
       }
 
       return null;
+    }
+
+    /// <summary>
+    /// 获取单个服务的接口
+    /// </summary>
+    /// <param name="serverName">服务名</param>
+    /// <returns></returns>
+    public Task<List<ClassInfo>> GetServiceInterfaces(string serverName)
+    {
+       return GetApiContent($"{this._helper.Host}{serverName}/GetApiHelp", null);
     }
 
 

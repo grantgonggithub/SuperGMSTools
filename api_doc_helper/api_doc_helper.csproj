@@ -10,8 +10,11 @@
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
   </PropertyGroup>
   <ItemGroup>
-    <Content Remove="wwwroot\dll\**" />
+    <Compile Remove="wwwroot\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="wwwroot\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,10 +30,6 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.2" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" PrivateAssets="All" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\assets\helpdesc\" />
   </ItemGroup>
 
   <ItemGroup>

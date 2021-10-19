@@ -9,6 +9,8 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Quantum.ApiDoc.Helper;
+
 using SuperGMS.ApiHelper;
 using SuperGMS.Config;
 
@@ -20,6 +22,7 @@ namespace SuperGMS.ApiDoc
     public const string ServerName = "ApiDocument";
     public static Dictionary<string, List<ClassInfo>> Dict = new Dictionary<string, List<ClassInfo>>();
     public static List<string> Svrs = new List<string>();
+    public static InterfaceHelper helper = null;
     public static void Main(string[] args)
     {
       //var path = Directory.GetCurrentDirectory();
