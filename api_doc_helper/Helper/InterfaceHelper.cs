@@ -106,78 +106,9 @@ namespace Quantum.ApiDoc.Helper
       return infos ?? new List<ClassInfo>();
     }
 
-    /// <summary>
-    /// 获取描述类 json
-    /// </summary>
-    /// <param name="info"></param>
-    /// <param name="uri"></param>
-    /// <param name="dict"></param>
-    /// <returns></returns>
-    private string GetLimitJson(ApiClassInfo info, Dictionary<string, string> dict)
-    {
-      return info?.ToJson(GetUdfModelDefine, dict);
-    }
-
     private object _lockUdfModel = new object();
     private Dictionary<string, List<FieldDescInfo>> _dictCacheUdfModel = new Dictionary<string, List<FieldDescInfo>>();
 
-    /// <summary>
-    /// 得到自定义模型信息
-    /// </summary>
-    /// <param name="info"></param>
-    /// <returns></returns>
-    private async Task<List<FieldDescInfo>> GetUdfModelDefine(ApiClassInfo info)
-    {
-      if (info?.UdfModel == null)
-      {
-        return null;
-      }
-
-      var key = $"{info.UdfModel.SysId}-{info.UdfModel.ModelName}";
-
-      lock (_lockUdfModel)
-      {
-        if (_dictCacheUdfModel.ContainsKey(key))
-        {
-          return _dictCacheUdfModel[key];
-        }
-      }
-
-      var ms = await _helper.GetApiContent< GetEditUIConfigArgs, List<GetEditUIConfigResult>>(
-        "SCMUserDefineService/GetEditUIConfig",
-        new GetEditUIConfigArgs
-        {
-            SysId = info.UdfModel.SysId,
-            ModelName = info.UdfModel.ModelName,
-        });
-
-      var dict = ms?.Select(m => new FieldDescInfo
-      {
-        CanHidden = m.CanHidden,
-        ControlType = m.ControlType,
-        DateDefaultTime = m.DateDefaultTime,
-        DateFormat = m.DateFormat,
-        DecimalDigits = m.DecimalDigits,
-        DefaultValue = m.DefaultValue,
-        DicSource = null,
-        EditReadOnly = m.EditReadOnly,
-        FieldName = m.FieldName,
-        GroupName = m.GroupName,
-        IsDigits = m.IsDigits,
-        IsHidden = m.IsHidden,
-        IsRequired = m.IsRequired,
-        MaxLength = m.MaxLength,
-        NumberMax = m.NumberMax,
-        NumberMin = m.NumberMin,
-        ReadOnly = m.ReadOnly,
-        ValidateRule = m.ValidateRule,
-      }).ToList();
-      lock (_lockUdfModel)
-      {
-        _dictCacheUdfModel[key] = dict; 
-      }
-      return dict;
-    }
   }
 
   #region 接口定义类
