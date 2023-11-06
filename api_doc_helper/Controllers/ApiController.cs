@@ -28,11 +28,11 @@ namespace SuperGMS.ApiDoc.Controllers
       {
         return Program.Dict[serverName.SvrName];
       }
-      else
-      {
-        var rst = Program.helper.GetServiceInterfaces(serverName.SvrName).Result;
-        Program.Dict[serverName.SvrName] = rst;
-      }
+      //else
+      //{
+      //  var rst = Program.helper.GetServiceInterfaces(serverName.SvrName).Result;
+      //  Program.Dict[serverName.SvrName] = rst;
+      //}
       return new List<ClassInfo>();
       
     }
