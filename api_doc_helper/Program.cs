@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace SuperGMS.ApiDoc
   {
     public static object lockObject = new object();
     public const string ServerName = "ApiDocument";
-    public static Dictionary<string, List<ClassInfo>> Dict = new Dictionary<string, List<ClassInfo>>();
+    public static ConcurrentDictionary<string, List<ClassInfo>> Dict = new ConcurrentDictionary<string, List<ClassInfo>>();
     public static List<string> Svrs = new List<string>();
     public static InterfaceHelper helper = null;
     public static void Main(string[] args)

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -47,7 +48,7 @@ namespace Quantum.ApiDoc.Helper
       }
     }
 
-    public void WriteJsonFile(Dictionary<string, List<ClassInfo>> dict)
+    public void WriteJsonFile(ConcurrentDictionary<string, List<ClassInfo>> dict)
     {
       Parallel.ForEach(dict.Keys, svr =>
       {

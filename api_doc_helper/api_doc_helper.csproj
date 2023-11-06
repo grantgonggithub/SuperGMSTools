@@ -10,11 +10,7 @@
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="wwwroot\**" />
     <Content Remove="$(SpaRoot)**" />
-    <Content Remove="wwwroot\**" />
-    <EmbeddedResource Remove="wwwroot\**" />
-    <None Remove="wwwroot\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,6 +35,81 @@
     <None Include="config\database.test_a.config" />
     <None Include="config\database.test_b.config" />
     <None Include="config\sqlmap.config" />
+    <None Include="wwwroot\0.8739d6d753d5191bfabd.js" />
+    <None Include="wwwroot\assets\css\bootstrap-theme.css.map" />
+    <None Include="wwwroot\assets\css\bootstrap-theme.min.css.map" />
+    <None Include="wwwroot\assets\css\bootstrap.css.map" />
+    <None Include="wwwroot\assets\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\assets\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\assets\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\assets\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\assets\js\bootstrap.js" />
+    <None Include="wwwroot\assets\js\bootstrap.min.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-aea.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-agc.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-apollo.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-basic.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-cbm.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-cl.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-clj.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-css.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-dart.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-el.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-erl.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-erlang.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-ex.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-exs.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-fs.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-go.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-hs.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-kotlin.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-lasso.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-lassoscript.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-latex.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-lgt.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-lisp.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-ll.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-llvm.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-logtalk.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-ls.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-lsp.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-lua.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-matlab.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-ml.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-mumps.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-n.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-nemerle.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-pascal.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-proto.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-r.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-rd.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-rkt.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-rust.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-s.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-scala.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-scm.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-Splus.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-sql.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-ss.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-swift.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-tcl.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-tex.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-vb.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-vbs.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-vhd.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-vhdl.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-wiki.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-xq.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-xquery.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-yaml.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\lang-yml.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\prettify.js" />
+    <None Include="wwwroot\assets\js\google-code-prettify\run_prettify.js" />
+    <None Include="wwwroot\assets\js\npm.js" />
+    <None Include="wwwroot\main.05ff36df419aaf2f2dcf.js" />
+    <None Include="wwwroot\polyfills.40b41b83024561ad3890.js" />
+    <None Include="wwwroot\runtime.35536ee47788bae2ee48.js" />
+    <None Include="wwwroot\scripts.d20da7564f6385f8ae1c.js" />
   </ItemGroup>
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('node_modules') ">
     <!-- Ensure Node.js is installed -->

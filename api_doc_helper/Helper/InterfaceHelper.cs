@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -8,6 +9,8 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+
+using SuperGMS.ApiDoc;
 using SuperGMS.ApiHelper;
 using SuperGMS.Config;
 using SuperGMS.Log;
@@ -29,13 +32,13 @@ namespace Quantum.ApiDoc.Helper
     {
       var svrs = await _helper.GetApiContent<Nullables, List<string>>($"GetAllServices", Nullables.NullValue, false);
       svrs = svrs?.Where(x => x.ToLower() != "httpproxy").ToList();
+      Program.Svrs = svrs;
       return svrs;
     }
 
-    public async Task<Dictionary<string, List<ClassInfo>>> GetAllServieInterfaces()
+    public async Task<ConcurrentDictionary<string, List<ClassInfo>>> GetAllServieInterfaces()
     {
-      var dict = new Dictionary<string, List<ClassInfo>>();
-      var svrs = await GetAllServices();
+      var svrs = Program.Svrs;
       //todo debug
       //svrs = new List<string> { "SCMOMSOrderCenterService" };
       // var res =  await _helper.GetApiContent<GetResourceArgs, GetResourceResult>("SCMGlobalToolsService/GetResource", new GetResourceArgs());
@@ -45,22 +48,24 @@ namespace Quantum.ApiDoc.Helper
       {
         svrs.ForEach(svr =>
           {
-            try
-            {
-              //if (svr == "SXSupplyService")
-              //  this._helper.Host = "http://192.168.7.223:20001/v2_api/";
-              //else
-              //  this._helper.Host = "http://192.168.7.207/v2_api/";
-              var c = GetServiceInterfaces(svr).Result;
-              dict.Add(svr, c);
-            }
-            catch (Exception ex)
-            {
-              logger.LogError(ex, "");
-            }
+            Task.Run(() => {
+              try
+              {
+                //if (svr == "SXSupplyService")
+                //  this._helper.Host = "http://192.168.7.223:20001/v2_api/";
+                //else
+                //  this._helper.Host = "http://192.168.7.207/v2_api/";
+                var c = GetServiceInterfaces(svr).Result;
+                Program.Dict.TryAdd(svr, c);
+              }
+              catch (Exception ex)
+              {
+                logger.LogError(ex, "");
+              }
+            });
           });
         
-        return dict;
+        return Program.Dict;
       }
 
       return null;

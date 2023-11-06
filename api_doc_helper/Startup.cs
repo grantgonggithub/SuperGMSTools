@@ -137,10 +137,10 @@ namespace SuperGMS.ApiDoc
           }
           Program.helper = new InterfaceHelper(apiHelper);
           var svrs = Program.helper.GetAllServices().Result;
-          lock (Program.lockObject)
-          {
-            Program.Svrs = svrs;
-          }
+          //lock (Program.lockObject)
+          //{
+          //  Program.Svrs = svrs;
+          //}
 
           //string token = string.Empty;
 
@@ -191,10 +191,10 @@ namespace SuperGMS.ApiDoc
                   return false;
                 });
               }
-              lock (Program.lockObject)
-              {
-                Program.Dict = dict;
-              }
+              //lock (Program.lockObject)
+              //{
+              //  Program.Dict = dict;
+              //}
             }
           //}
 

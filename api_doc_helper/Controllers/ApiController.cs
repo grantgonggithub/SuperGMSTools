@@ -33,7 +33,7 @@ namespace SuperGMS.ApiDoc.Controllers
         //else
         //{
         //  var rst = Program.helper.GetServiceInterfaces(serverName.SvrName).Result;
-        //  Program.Dict[serverName.SvrName] = rst;
+        //  Program.Dict.TryAdd(serverName.SvrName,rst);
         //}
       }
       catch {
