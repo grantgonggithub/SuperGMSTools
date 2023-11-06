@@ -19,19 +19,25 @@ namespace SuperGMS.ApiDoc.Controllers
     [HttpPost]
     public List<ClassInfo> GetApiInfo([FromBody]ServerApiParam serverName)
     {
-      if (string.IsNullOrEmpty(serverName?.SvrName))
+      try
       {
-        return null;
-      }
+        if (string.IsNullOrEmpty(serverName?.SvrName))
+        {
+          return null;
+        }
 
-      if (Program.Dict.ContainsKey(serverName.SvrName))
-      {
-        return Program.Dict[serverName.SvrName];
+        if (Program.Dict.ContainsKey(serverName.SvrName))
+        {
+          return Program.Dict[serverName.SvrName];
+        }
+        //else
+        //{
+        //  var rst = Program.helper.GetServiceInterfaces(serverName.SvrName).Result;
+        //  Program.Dict[serverName.SvrName] = rst;
+        //}
       }
-      else
-      {
-        var rst = Program.helper.GetServiceInterfaces(serverName.SvrName).Result;
-        Program.Dict[serverName.SvrName] = rst;
+      catch {
+
       }
       return new List<ClassInfo>();
       
